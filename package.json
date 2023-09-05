@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "author": "CaiMin <mcai_seu@qq.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^7.16.9",
+    "antd": "^5.8.4",
+    "axios": "^1.5.0",
+    "umi": "^4.0.78"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@umijs/lint": "^4.0.78",
+    "@umijs/plugins": "^4.0.78",
+    "eslint": "^8.47.0",
+    "file-loader": "^6.2.0",
+    "stylelint": "^14.16.1",
+    "typescript": "^5.0.3"
+  }
+}

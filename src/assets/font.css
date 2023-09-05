@@ -1,0 +1,9 @@
+@font-face {
+    font-family: HanSansRegular;
+    src: url('../../public/fonts/HanSansSCRegular.otf');
+}
+
+@font-face {
+    font-family: HanSansMedium;
+    src: url('../../public/fonts/HanSansSCMedium.otf');
+}
