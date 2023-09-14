@@ -42,7 +42,7 @@
     --grayFF: #FFFFFF;
 }
 
-// font
+// font 
 :root{
     --font_type: 'HanSansRegular';
     --regular_weight: 'normal';
@@ -50,7 +50,7 @@
     --medium_weight: 500;
     --size24: 24px;
     --height24: 32px;
-    --size18: 18px;
+    --size18: 18px; 
     --height18: 26px;
     --size16: 16px;
     --height16: 24px;
@@ -60,4 +60,62 @@
     --height12: 16px;
     --size10: 10px;
     --height10: 16px;
+}
+
+:export {
+    green0: #00B578;
+    green1: rgba(0, 181, 120, 0.1)
+}
+
+@font-face {
+    font-family: 'Regular24';
+    src: url('./assets/HanSansSCRegular.otf');
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 32px;
+    letter-spacing: 0px;
+}
+
+@font-face {
+    font-family: 'Regular18';
+    src: url('./assets/HanSansSCRegular.otf')format('truetype');
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 26px;
+    letter-spacing: 0px;
+} 
+
+@font-face {
+    font-family: 'Regular16';
+    src: url('./assets/HanSansSCRegular.otf')format('truetype');
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 24px;
+    letter-spacing: 0px;
+}
+
+@font-face {
+    font-family: HanSansMedium;
+    src: url('../public/fonts/HanSansSCMedium.otf');
+    font-size: 28px;
+}
+
+// scroll
+::-webkit-scrollbar {
+    width: 8px; /* 纵向滚动条*/
+    height: 0px; /* 横向滚动条 */   
+    background-color: var(--grayFF);
+}
+
+/*定义滚动条轨道 内阴影*/
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px var(--grayFF);
+    background-color: var(--grayFF);
+}
+
+/*定义滑块 内阴影*/
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px var(--grayFF);
+    background-color: var(--grayF5);
+    border-radius: 10px;
 }

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import './view.less'
 import InstitutionInfoSimple from '@/components/InstitutionInfoSimple/InstitutionInfoSimple'
-import { Select, Input, List } from 'antd'
+import { Select, Input, List, Button } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
 import http from '@/utils/http'
-import Item from 'antd/es/list/Item'
+import { Space } from 'antd/lib'
 
 const modeOptions = [
   {
@@ -25,7 +26,7 @@ class Page extends React.Component {
     institutionSimpleInfo: {
       nodeCode: '',
       nodeName: '',
-      parentNode: '',
+      parentNode: null,
       sort: null,
       visible: null,
       clickable: null,
@@ -84,55 +85,66 @@ class Page extends React.Component {
     })
   }
 
-  constructor(props) {
-    super(props)
+  componentDidMount(): void {
     const params = {
       includeCustomUnit: 0
     }
-    http('post', '/ins/getTopLayoutList', params).then(res => {
-      this.setState({institutionTypes : res.data})
-    })
+    // http('post', '/ins/getTopLayoutList', params).then(res => {
+    //   this.setState({institutionTypes : res.data})
+    // })
+    
+  }
+
+  constructor(props) {
+    super(props)   
   }
   
   render(): React.ReactNode {
     return (
-      <div>
+      <div className='view-page'>
         <div className='list-search'>
-          <Select className='select' defaultValue={modeOptions[0].value} options={modeOptions}></Select>
+          <Select className='select' dropdownStyle={{height: '244px', padding: '8px'}} defaultValue={modeOptions[0].value} options={modeOptions}></Select>
           <Input className='input' placeholder='输入搜索名称，按回车键搜索'></Input>
         </div>
         <div className='institution-type'>
           <List className='list' itemLayout='horizontal' split={false} dataSource={this.state.institutionTypes} renderItem={(item, index) => (
             <List.Item onClick={ () =>this.handleInstitutionTypeClick(item)}>
-              <List.Item.Meta title={<a>{item.nodeName}</a>}></List.Item.Meta>
+              <List.Item.Meta title={<a className='list-font'>{item.nodeName}</a>}></List.Item.Meta>
             </List.Item>
           )}>
           </List>
         </div>     
+        <div>
         {this.state.institutions.affiliatedInstitutions.length == 0 ? 
         <div className='institutions'>
           <List className='list' itemLayout='horizontal' split={false} dataSource={this.state.institutions.institutionList} renderItem={(item, index) => (
             <List.Item onClick={ () =>this.handleInstitutionClick(item)}>
-              <List.Item.Meta title={<a>{item.nodeName}</a>}></List.Item.Meta>
-            </List.Item>
-          )}>
-          </List>
-          </div> :
-          <div>
-          <List className='half-list' itemLayout='horizontal' split={false} dataSource={this.state.institutions.institutionList} renderItem={(item, index) => (
-            <List.Item onClick={ () =>this.handleInstitutionClick(item)}>
-              <List.Item.Meta title={<a>{item.nodeName}</a>}></List.Item.Meta>
-            </List.Item>
-          )}>
-          </List>
-          <List className='affiliated-list' itemLayout='horizontal' split={false} dataSource={this.state.institutions.affiliatedInstitutions} renderItem={(item, index) => (
-            <List.Item onClick={ () =>this.handleAllilicatedInstitutionClick(item)}>
-              <List.Item.Meta title={<a>{item.nodeName}</a>}></List.Item.Meta>
+              <List.Item.Meta title={<a className='list-font'>{item.nodeName}</a>}></List.Item.Meta>
             </List.Item>
           )}>
           </List>
           </div>
-        }        
+          :
+          <Fragment>
+          <div className='half-institutions'>
+          <List className='list' itemLayout='horizontal' split={false} dataSource={this.state.institutions.institutionList} renderItem={(item, index) => (
+            <List.Item onClick={ () =>this.handleInstitutionClick(item)}>
+              <List.Item.Meta title={<a className='list-font'>{item.nodeName}</a>}></List.Item.Meta>
+            </List.Item>
+          )}>
+          </List>
+          </div>
+          <div className='affiliated-institutions'>
+          <List className='list' itemLayout='horizontal' split={false} dataSource={this.state.institutions.affiliatedInstitutions} renderItem={(item, index) => (
+            <List.Item onClick={ () =>this.handleAllilicatedInstitutionClick(item)}>
+              <List.Item.Meta title={<a className='list-font'>{item.nodeName}</a>}></List.Item.Meta>
+            </List.Item>
+          )}>
+          </List>
+          </div>
+          </Fragment>
+        }
+        </div>        
         <InstitutionInfoSimple institutionInfoSimple={this.state.institutionSimpleInfo}></InstitutionInfoSimple>
       </div>
     );

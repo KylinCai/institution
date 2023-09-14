@@ -1,8 +1,8 @@
 import { Outlet, history } from 'umi';
-import style from './index.less';
-import { Fragment } from 'react';
+import './index.less';
 import { Layout, Menu } from 'antd';
-import seuIcon from '@/assets/SEU-icon.svg';
+import seuIcon from '../../public/SEU-icon.svg';
+import axios from 'axios';
 const { Header, Sider } = Layout;
 const menu = [
   {
@@ -53,6 +53,10 @@ const siderMenu = [
     label: '用户权限配置',
     key: 'userManagement',
   },
+  {
+    label: '导出机构列表',
+    key: 'export',
+  },
 ]
 
 export default function Layouts() {
@@ -60,24 +64,25 @@ export default function Layouts() {
     history.push('/' + key)
   }
   return (
-    <Fragment>
-      <Layout>
-        <Header className={style.header}>
-          <div className={style.icon}>
-            <img src={seuIcon} />
+    <div>
+      <Layout >
+        <Header className='header'>
+          <div>
+            <img className='icon' src={seuIcon} />
           </div>
-          <Menu theme='dark' mode="horizontal" items={menu} className={style.menu} />
+          <div className='menu'>ITS 组织机构管理系统</div>
+          {/* <Menu theme='dark' mode="horizontal" items={menu} className='menu' /> */}
         </Header>
-        <Layout className={style.body}>
-          <Sider className={style.sider}>
-            <Menu mode='inline' className={style.siderMenu} items={siderMenu}  onSelect={changeSiderMenu}></Menu>
+        <Layout className='body'>
+          <Sider className='sider'>
+            <Menu mode='inline' className='sider-menu' items={siderMenu}  onSelect={changeSiderMenu}></Menu>
           </Sider>
-          <Layout className={style.outlet}>
+          <Layout className='outlet'>
             <Outlet />
           </Layout>
         </Layout>
       </Layout>
-    </Fragment>
+    </div>
   );
   
 }

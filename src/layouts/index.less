@@ -1,3 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+html,
+body{
+  padding: 0;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+}
 .header {
   position: absolute;
   left: 0px;
@@ -5,36 +17,49 @@
   width: 100%;
   height: 56px;
   opacity: 1;
-  background-color: var(--blue0);
-  border: 1px solid var(--grayFF);
+  background: var(--blue0);
 }
 .header .icon {
   position: absolute;
   left: 25px;
   top: 12px;
+  width: 100px;
+  height: 32px;
   opacity: 1;
+  left: 50%;
+  transform: translate(-700px);
 }
 .header .menu {
-  position: relative;
-  left: 130px;
-  top: 0px;
-  height: 56px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-575px);
+  top: 19px;
+  width: 177px;
+  height: 18px;
   opacity: 1;
-  background-color: var(--blue0);
+  font-family: var(--font_type);
+  font-size: var(--size16);
+  font-weight: 900;
+  line-height: var(--size18);
+  letter-spacing: var(--font_letter_spacing);
+  color: var(--grayFF);
 }
 .body {
   position: absolute;
   left: 0px;
   top: 80px;
-  width: 100%;
-  height: 100%;
+  width: 1399px;
+  height: -webkit-fill-available;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%);
 }
-.sider {
+.body .sider {
   position: absolute;
   left: 0px;
   top: 0px;
+  height: calc(100% - 24px);
   width: 187px;
-  height: 100%;
   border-radius: 4px;
   opacity: 1;
   display: flex;
@@ -44,20 +69,18 @@
   background: var(--grayEE);
   border: 1px solid var(--grayEE);
 }
-.siderMenu {
-  position: relative;
-  border-right: 0;
-  height: 100%;
-  background-color: var(--grayEE);
+.body .sider .sider-menu {
+  background: var(--grayEE);
 }
-.outlet {
+.body .outlet {
   position: absolute;
-  left: 223px;
+  left: 203px;
   top: 0px;
-  width: 1196px;
-  height: 720px;
+  width: 1196px; 
+  min-width: 1196px;
+  height: calc(100% - 24px);
   border-radius: 0px 0px 4px 4px;
   opacity: 1;
-  background-color: var(--grayFF);
+  background: var(--grayFF);
   border: 1px solid var(--grayEE) ;
 }

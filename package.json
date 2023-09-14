@@ -9,14 +9,18 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@ant-design/pro-layout": "^7.16.9",
+    "ant-design-icons": "^1.3.3",
     "antd": "^5.8.4",
     "axios": "^1.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "umi": "^4.0.78"
   },
   "devDependencies": {
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "@umijs/lint": "^4.0.78",
     "@umijs/plugins": "^4.0.78",
     "eslint": "^8.47.0",

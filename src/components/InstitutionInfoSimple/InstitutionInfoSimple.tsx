@@ -1,5 +1,11 @@
 import { Button, Divider } from "antd";
 import './InstitutionInfoSimple.less';
+import { history } from 'umi';
+
+function goToDetail(item) {
+    console.log(item)
+    history.push({pathname: '/viewDetails/' + item.parentNode + '/' + item.unitName})
+}
 
 export default function InstitutionInfoSimple({institutionInfoSimple} : {institutionInfoSimple: any}) {
     return (
@@ -7,7 +13,7 @@ export default function InstitutionInfoSimple({institutionInfoSimple} : {institu
             <div className="institution-info-container">
                 <div className="code">机构代码：{institutionInfoSimple.unitCode}</div>
                 <div className="name">{institutionInfoSimple.unitName}</div>
-                <Button type="primary" className="button">查看机构详情</Button>
+                <Button type="primary" className="button" onClick={() => goToDetail(institutionInfoSimple)}>查看机构详情</Button>
                 <div className="normal">机构状态：{institutionInfoSimple.unitStatus}</div>
                 <div className="normal">机构简称：{institutionInfoSimple.unitNameShort}</div>
                 <div className="normal">机构英文：{institutionInfoSimple.unitNameEnglish}</div>

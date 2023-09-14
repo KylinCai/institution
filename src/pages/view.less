@@ -1,3 +1,7 @@
+.view-page {
+  width: 1196px;
+  height: inherit;
+}
 .list-search {
   position: absolute;
   left: 0px;
@@ -18,9 +22,6 @@
 }
 .list-search .select {
   position: static;
-  left: 13px;
-  top: 16px;
-  width: 102px;
   height: 44px;
   border-radius: 4px;
   opacity: 1;
@@ -32,6 +33,22 @@
   gap: 8px;
   background: var(--grayF5);
   z-index: 0;
+}
+.select-drop-down {
+  position: absolute;
+  left: 236px;
+  top: 144px;
+  width: 280px;
+  height: 244px;
+  border-radius: 4px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  background: var(--grayFF);
+  box-sizing: border-box;
+  border: 1px solid var(--grayEE);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
 }
 .list-search .input {
   position: static;
@@ -51,12 +68,12 @@
   background: var(--grayF5);
   z-index: 1;
 }
-.institution-type {
+.view-page .institution-type {
   position: absolute;
   left: 0px;
   top: 76px;
   width: 269px;
-  height: 720px;
+  height: calc(100% - 76px);
   opacity: 1;
   display: flex;
   flex-direction: column;
@@ -72,8 +89,8 @@
   left: 269px;
   top: 76px;
   width: 539px;
-  height: 720px;
-  max-height: 720px;
+  height: calc(100% - 76px);
+  max-height: calc(100% - 76px);
   overflow-y: auto;
   opacity: 1;
   display: flex;
@@ -82,17 +99,17 @@
   border: 1px solid var(--grayEE);
   background-color: var(--grayFF);
 }
-.institutions .list {
+.list {
   left: 19px;
 }
 
-.half-list {
+.half-institutions {
   position: absolute;
   left: 269px;
   top: 76px;
   width: 269px;
-  height: 720px;
-  max-height: 720px;
+  height: calc(100% - 76px);
+  max-height: calc(100% - 76px);
   overflow-y: auto;
   opacity: 1;
   display: flex;
@@ -101,18 +118,31 @@
   border: 1px solid var(--grayEE);
   background-color: var(--grayFF);
 }
-.affiliated-list {
+.affiliated-institutions {
   position: absolute;
   left: 538px;
   top: 76px;
   width: 269px;
-  height: 720px;
+  height: calc(100% - 76px);
   opacity: 1;
-
-  /* 自动布局 */
   display: flex;
   flex-direction: column;
   padding: 0px;
   border: 1px solid var(--grayEE);
   background-color: var(--grayFF);
+}
+.list-font {
+  position: static;
+  left: 8px;
+  top: 16px;
+  width: 156px;
+  height: 20px;
+  opacity: 1;
+  font-family: Regular18;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: var(--gray66);
+  z-index: 0;
 }
