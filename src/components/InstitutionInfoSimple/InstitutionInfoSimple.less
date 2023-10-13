@@ -3,12 +3,36 @@
     left: 808px;
     top: 76px;
     width: 388px;
-    height: calc(100% - 100px);
+    height: calc(100% - 76px);
     border-radius: 0px 0px 4px 4px;
     opacity: 1;
-    background-color: var(--grayFF);
+    background: var(--blue1);
 }
-.institution-in-simple .institution-info-container {
+.institution-in-simple-green {
+    position: absolute;
+    left: 808px;
+    top: 76px;
+    width: 388px;
+    height: calc(100% - 76px);
+    border-radius: 0px 0px 4px 4px;
+    opacity: 1;
+    background: var(--green1);
+    border: 1px solid var(--green0);
+}
+.blank-hint {
+    position: absolute;
+    font-family: var(--font_type);
+    font-size: var(--size14); 
+    font-weight: var(--regular_weight);
+    line-height: var(--height14);
+    letter-spacing: 0px;
+    color: var(--grayAB);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%);
+    text-align: center;
+}
+.institution-info-container {
     position: absolute;
     left: 16px;
     top: 16px;
@@ -20,7 +44,7 @@
     padding: 0px;
     gap: 16px;
 }
-.institution-in-simple .institution-info-container .code {
+.institution-info-container .code {
     position: static;
     left: 0px;
     top: 0px;
@@ -35,7 +59,7 @@
     color: var(--gray66);
     z-index: 0;
 }
-.institution-in-simple .institution-info-container .name {
+.institution-info-container .name {
     position: static;
     left: 0px;
     top: 32px;
@@ -49,7 +73,7 @@
     letter-spacing: 0px;
     color: var(--blue0);
 }
-.institution-in-simple .institution-info-container .button {
+.institution-info-container .button {
     position: static;
     left: 0px;
     top: 100px;
@@ -63,10 +87,9 @@
     align-items: center;
     padding: 11px;
     gap: 8px;
-    background: var(--blue0);
     z-index: 2;
 }
-.institution-in-simple .institution-info-container .normal {
+.institution-info-container .normal {
     position: static;
     left: 0px;
     top: 160px;
@@ -81,7 +104,7 @@
     color: var(--gray66);
     z-index: 0;
 }
-.institution-in-simple .institution-info-container .divider {
+.institution-info-container .divider {
     position: static;
     left: 0px;
     top: 272px;
@@ -98,4 +121,18 @@
     width: 100%;
     min-width: 100%;
     margin: 1px 0;
+}
+.bottom-button {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    right: 16px;
+    height: 44px;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 11px;
+    gap: 8px;
 }

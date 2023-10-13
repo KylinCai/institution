@@ -26,14 +26,14 @@ const meetingInfo = {time: '2018-10-10', name: '会议名称', part: '第一期'
 
 const timeLineData = [
   {color: 'blue', 
-  children: <p>
+  children: <p> 
     <span className='top-code'>{meetingInfo.time}</span>
     <a className='tiny-block'>{meetingInfo.name} </a>
     <span className='tiny-block'>{meetingInfo.part} </span>
     {meetingInfo.isImportant ? <Tag className='tiny-block' color='blue'>决定性会议</Tag> : <></>}
     </p>,
   position: 'right'},
-  {color: 'red', children: '我是内容', position: 'right'},
+  {color: 'red', children: '我是内容', position: 'right'}, 
   {color: 'green', children: '我是内容', position: 'right'},
   {color: 'gray', children: '我是内容', position: 'right'}
 ]
@@ -86,9 +86,18 @@ export default function Page() {
       {
         showRelatedIns ? 
         <div className='form-table'>
-        <ConfigProvider locale={zhCN}>
-          <Table dataSource={tableData} columns={columns}></Table>
-        </ConfigProvider>
+          <Table dataSource={tableData.slice(innerPageSize*(currentPage-1),innerPageSize*currentPage)} columns={columns} pagination={false} bordered>
+          </Table>
+          <Pagination 
+              size='small' 
+              current={currentPage} 
+              pageSize={innerPageSize} 
+              total={tableData.length+100} 
+              showTotal={showTotal} 
+              showSizeChanger 
+              showQuickJumper 
+              onChange={tableChange}>
+            </Pagination>
       </div>
       :
       <></>
@@ -103,15 +112,31 @@ export default function Page() {
         <p className='form-title'>内设科室</p>
         <Table dataSource={tableData.slice(innerPageSize*(currentPage-1),innerPageSize*currentPage)} columns={columns} pagination={false} bordered>
         </Table>
-        <ConfigProvider locale={zhCN}>
-          <Pagination size='small' current={currentPage} pageSize={innerPageSize} total={tableData.length+100} showTotal={showTotal} showSizeChanger showQuickJumper onChange={tableChange}></Pagination>
-        </ConfigProvider>
+        <Pagination 
+            size='small' 
+            current={currentPage} 
+            pageSize={innerPageSize} 
+            total={tableData.length+100} 
+            showTotal={showTotal} 
+            showSizeChanger 
+            showQuickJumper 
+            onChange={tableChange}>
+          </Pagination>
       </div>
       <div className='form-table'>
         <p className='form-title'>人员编制</p>
-        <ConfigProvider locale={zhCN}>
-          <Table dataSource={tableData} columns={columns}></Table>
-        </ConfigProvider>
+        <Table dataSource={tableData.slice(innerPageSize*(currentPage-1),innerPageSize*currentPage)} columns={columns} pagination={false} bordered>
+        </Table>
+        <Pagination 
+            size='small' 
+            current={currentPage} 
+            pageSize={innerPageSize} 
+            total={tableData.length+100} 
+            showTotal={showTotal} 
+            showSizeChanger 
+            showQuickJumper 
+            onChange={tableChange}>
+          </Pagination>
       </div>
       <div className='form-bottom'>
         <p className='form-title'>关联会议信息</p>

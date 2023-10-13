@@ -1,4 +1,195 @@
 
-.title {
-  background: rgb(137, 121, 242);
+.edit-page {
+  width: 1196px;
+  height: inherit;
+}
+.edit-list-search {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 1196px;
+  height: 76px;
+  border-radius: 4px 4px 0px 0px;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 13px;
+  gap: 8px;
+  align-self: stretch;
+  background: var(--grayFF);
+  border: 1px solid var(--green0);
+}
+.quit-button {
+  position: static;
+  left: 13px;
+  top: 16px;
+  width: 102px;
+  height: 44px;
+  border-radius: 4px;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  gap: 8px;
+  z-index: 1;
+}
+.cancel-button {
+  position: static;
+  left: 123px;
+  top: 16px;
+  width: 74px;
+  height: 44px;
+  border-radius: 4px;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  gap: 8px;
+  z-index: 1;
+}
+.input {
+  position: static;
+  left: 205px;
+  top: 16px;
+  width: 844px;
+  height: 44px;
+  border-radius: 4px;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 8px;
+  gap: 8px;
+  flex-grow: 1;
+  align-self: stretch;
+  background: var(--grayF5);
+  z-index: 2;
+}
+.save-button {
+  position: static;
+  left: 1057px;
+  top: 16px;
+  width: 74px;
+  height: 44px;
+  border-radius: 4px;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  gap: 8px;
+  background: var(--green1);
+  box-sizing: border-box;
+  border: 1px solid var(--green6);
+  z-index: 1;
+  color: var(--green0);
+}
+.history-button {
+  position: static;
+  left: 1139px;
+  top: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  opacity: 1;
+
+  /* 自动布局 */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  gap: 8px;
+  background: var(--grayF5);
+  z-index: 1;
+}
+.edit-institution-type {
+  position: absolute;
+  left: 0px;
+  top: 76px;
+  width: 269px;
+  height: calc(100% - 76px);
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: 1px solid var(--green0);
+}
+:where(.css-dev-only-do-not-override-1hxeo48).ant-table-wrapper .ant-table-tbody >tr.ant-table-row:hover>td {
+  background: var(--green1);
+}
+:where(.css-dev-only-do-not-override-1hxeo48).ant-table-wrapper .ant-table-tbody >tr.ant-table-row:focus>td {
+  background: var(--green1);
+  color: var(--green0);
+}
+.edit-institutions {
+  position: absolute;
+  left: 269px;
+  top: 76px;
+  width: 539px;
+  height: calc(100% - 76px);
+  max-height: calc(100% - 76px);
+  overflow-y: auto;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: 1px solid var(--green0);
+}
+.edit-half-institutions {
+  position: absolute;
+  left: 269px;
+  top: 76px;
+  width: 269px;
+  height: calc(100% - 76px);
+  max-height: calc(100% - 76px);
+  overflow-y: auto;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: 1px solid var(--green0);
+}
+.edit-affiliated-institutions {
+  position: absolute;
+  left: 538px;
+  top: 76px;
+  width: 269px;
+  height: calc(100% - 76px);
+  max-height: calc(100% - 76px);
+  overflow-y: auto;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  border: 1px solid var(--green0);
+}
+.edit-add-button {
+  position: sticky;
+  left: 8px;
+  right: 8px;
+  top: calc(100% - 52px);
+  bottom: 8px;
+  height: 44px;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px;
+  gap: 8px;
+  background: var(--green1);
+  color: var(--green0);
+  border: 1px solid var(--green0 );
+  z-index: 10001;
+}
+.edit-page :where(.css-dev-only-do-not-override-kusy2l).ant-input-affix-wrapper >input.ant-input {
+  background: var(--grayF5);
 }

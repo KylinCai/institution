@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react'
 import './view.less'
 import InstitutionInfoSimple from '@/components/InstitutionInfoSimple/InstitutionInfoSimple'
-import { Select, Input, List, Button } from 'antd'
+import { Select, Input, List, Divider } from 'antd'
 import { SearchOutlined } from '@ant-design/icons'
 import http from '@/utils/http'
-import { Space } from 'antd/lib'
 
 const modeOptions = [
   {
@@ -23,22 +22,7 @@ const modeOptions = [
 
 class Page extends React.Component {
   state = {
-    institutionSimpleInfo: {
-      nodeCode: '',
-      nodeName: '',
-      parentNode: null,
-      sort: null,
-      visible: null,
-      clickable: null,
-      isCustomUnit: null,
-      unitCode: null,
-      unitName: null,
-      unitNameShort: null,
-      unitNameEnglish: null,
-      unitStatus: null,
-      foundDate: null,
-      updateTime: null,
-    },
+    institutionSimpleInfo: {} as commonModels.InstitutionModel,
     institutionTypes: [],
     institutions: {
       institutionList: [],
@@ -46,57 +30,55 @@ class Page extends React.Component {
     },
   }
 
-  handleInstitutionTypeClick = (item) => {
+  handleInstitutionTypeClick = (item: commonModels.InstitutionModel) => {
     const params = {
       parentNodeCode: item.nodeCode
     }
-    http('post', '/ins/getLayoutChildList', params).then((res : any) => {
+    http('post', '/ins/back/getLayoutChildList', params).then((res : any) => {
       if(res.data !== null) {
         this.setState({institutions : {institutionList: res.data, affiliatedInstitutions: []}})
       }
     })
   }
 
-  handleInstitutionClick = (item) => {
+  handleInstitutionClick = (item: commonModels.InstitutionModel) => {
     const params = {
       parentNodeCode: item.nodeCode
     }
     const infoQueryParam = {
       nodeCode: item.nodeCode
     }
-    http('post', '/ins/getLayoutChildList', params).then((res : any) => {
+    http('post', '/ins/back/getLayoutChildList', params).then((res : any) => {
       if(res.data == null) {
         this.setState({institutions : {institutionList: this.state.institutions.institutionList, affiliatedInstitutions: []}})
       } else {
         this.setState({institutions : {institutionList: this.state.institutions.institutionList, affiliatedInstitutions: res.data}})
       }
-      http('post', '/ins/getLayoutByNodeCode', infoQueryParam).then((res : any) => {
+      http('post', '/ins/back/getLayoutByNodeCode', infoQueryParam).then((res : any) => {
         this.setState({institutionSimpleInfo: res.data})
       })
     })
   }
 
-  handleAllilicatedInstitutionClick = (item) => {
+  handleAllilicatedInstitutionClick = (item: commonModels.InstitutionModel) => {
     const infoQueryParam = {
       nodeCode: item.nodeCode
     }
-    http('post', '/ins/getLayoutByNodeCode', infoQueryParam).then((res : any) => {
+    http('post', '/ins/back/getLayoutByNodeCode', infoQueryParam).then((res : any) => {
       this.setState({institutionSimpleInfo: res.data})
     })
-  }
+  }                
 
   componentDidMount(): void {
     const params = {
       includeCustomUnit: 0
     }
-    // http('post', '/ins/getTopLayoutList', params).then(res => {
-    //   this.setState({institutionTypes : res.data})
-    // })
-    
+    http('post', '/ins/back/getTopLayoutList', params).then(res => {
+      this.setState({institutionTypes : res.data })
+    })
   }
-
   constructor(props) {
-    super(props)   
+    super(props)  
   }
   
   render(): React.ReactNode {
@@ -145,7 +127,7 @@ class Page extends React.Component {
           </Fragment>
         }
         </div>        
-        <InstitutionInfoSimple institutionInfoSimple={this.state.institutionSimpleInfo}></InstitutionInfoSimple>
+        <InstitutionInfoSimple type="view" institutionInfoSimple={this.state.institutionSimpleInfo}></InstitutionInfoSimple>
       </div>
     );
   }

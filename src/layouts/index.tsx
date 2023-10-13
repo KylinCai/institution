@@ -1,8 +1,14 @@
-import { Outlet, history } from 'umi';
+import { Outlet, history, useLocation } from 'umi';
 import './index.less';
-import { Layout, Menu } from 'antd';
+import style from '../global.less';
+import { Layout, Menu, ConfigProvider, Form, Select, Button } from 'antd';
 import seuIcon from '../../public/SEU-icon.svg';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
+import zhCN  from 'antd/locale/zh_CN';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
+dayjs.locale('zh-cn')
+
 const { Header, Sider } = Layout;
 const menu = [
   {
@@ -59,12 +65,17 @@ const siderMenu = [
   },
 ]
 
-export default function Layouts() {
+export default function Layouts(props) {
+  const [current, setCurrent] = useState("/")
+  const location = useLocation()
+  useEffect(() => {
+    setCurrent(location.pathname)
+  })
   function changeSiderMenu({key} : {key: string}) {
     history.push('/' + key)
   }
   return (
-    <div>
+    <ConfigProvider locale={zhCN} theme={{token: {colorTextBase: style.gray66}}}>
       <Layout >
         <Header className='header'>
           <div>
@@ -75,14 +86,14 @@ export default function Layouts() {
         </Header>
         <Layout className='body'>
           <Sider className='sider'>
-            <Menu mode='inline' className='sider-menu' items={siderMenu}  onSelect={changeSiderMenu}></Menu>
+            <Menu mode='inline' className='sider-menu' selectedKeys={location.pathname} items={siderMenu}  onSelect={changeSiderMenu}></Menu>
           </Sider>
           <Layout className='outlet'>
             <Outlet />
           </Layout>
         </Layout>
       </Layout>
-    </div>
+    </ConfigProvider>
   );
   
 }
